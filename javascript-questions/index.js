@@ -28,9 +28,11 @@ const getDCHeroes = (heroes) => {
  * ]
  */
 const convertCharactersToArray = (heroes) => {
-  for(let i = 0; i < heroes.length; i++) {
-   heroes[i].characters.split(',')
-  }
+
+  heroes.forEach(hero => hero.characters.split(','))
+  // for(let i = 0; i < heroes.length; i++) {
+  //  heroes[i].characters.split(',')
+  // }
   return heroes;
 }
 
@@ -52,15 +54,16 @@ const groupByPublisher = (heroes) => {
   const publisher2 = []
   const sorted = []
   for(let i =0; i < heroes.length; i++){
-   if(heroes[i].publisher == "DC Comics"){
+   if(heroes[i].publisher === "DC Comics"){
      publisher1.push(heroes[i])
    }else{
      publisher2.push(heroes[i])
    }
+  }
    sorted.push(publisher1)
    sorted.push(publisher2)
 
-}  return sorted;
+ return sorted;
 }
 
 /**
